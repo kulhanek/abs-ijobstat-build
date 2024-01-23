@@ -25,6 +25,10 @@ _PWD=$PWD
 cd src/projects/ams/9.0
 ./UpdateGitVersion activate
 cd $_PWD
+_PWD=$PWD
+cd src/projects/abs/4.0
+./UpdateGitVersion activate
+cd $_PWD
 
 echo ""
 echo ">>> Number of CPUs for building: $N"
@@ -39,3 +43,12 @@ make -j "$N" 2>&1 | tee make.log || exit 1
 make DESTDIR=$DESDIR install 2>&1 | tee install.log || exit 1
 
 echo ""
+
+echo ""
+# gen new control file
+VERSION="`cat \"$DESDIR/DEBIAN/dpkgver\" 2>/dev/null`"
+((VERSION++))
+sed -e "s/VERSION/$VERSION/g" < "$DESDIR/DEBIAN/control.tmp" > "$DESDIR/DEBIAN/control"
+echo "$VERSION" > "$DESDIR/DEBIAN/dpkgver"
+
+

@@ -80,7 +80,8 @@ ADD_SUBDIRECTORY(src/projects/abs-ijobstat/4.0)
 # ==============================================================================
 
 ADD_DEPENDENCIES(ams_shared hipoly_shared hwloc-build)
-ADD_DEPENDENCIES(abs_shared ams_shared)
+ADD_DEPENDENCIES(hipoly_shared hipoly_shared)
+ADD_DEPENDENCIES(abs_shared hipoly_shared ams_shared)
 ADD_DEPENDENCIES(firebird_shared hipoly_shared)
 ADD_DEPENDENCIES(abs-ijobstat hipoly_shared firebird_shared ams_shared abs_shared)
 

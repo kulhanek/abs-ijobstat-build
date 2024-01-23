@@ -8,4 +8,4 @@ src/projects/hipoly/1.0 hipoly main
 src/projects/firebird/1.0 firebird main
 src/projects/ams/9.0 ams main
 src/projects/abs/4.0 abs main
-src/projects/abs-isoftstat/4.0 abs-ijobstat main
+src/projects/abs-ijobstat/4.0 abs-ijobstat main
